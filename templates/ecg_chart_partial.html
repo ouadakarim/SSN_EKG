@@ -1,0 +1,50 @@
+<div>
+    <hr>
+    <div class="row">
+        <div class="6u 6u(medium) 12u$(xsmall)">
+            <ul class="alt">
+                <li><strong>Sample no:</strong> {{ sample_no }}</li>
+                <li><strong>Heart rate (before):</strong> {{ heart_rate_avg|floatformat:2 }} BPM</li>
+                <li><strong>Heart rate (after):</strong> {{ decompressed_heart_rate_avg|floatformat:2 }} BPM</li>
+                <li><strong>Mean square signal difference error :</strong> {{ mean_square_error_signal }} </li>
+                <li><strong>Mean square rpeaks position error:</strong> {{ mean_square_error_rpeaks|default:"Different number of rpeaks" }} </li>
+            </ul>
+        </div>
+        <div class="6u 6u(medium) 12u$(xsmall)">
+            <ul class="alt">
+                <li><strong>R peaks (before):</strong>
+                    {% for peak in rpeaks %}
+                        {{ peak }}
+                    {% endfor %}
+                </li>
+                <li><strong>R peaks (after):</strong>
+                    {% for peak in decompressed_rpeaks %}
+                        {{ peak }}
+                    {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="12u 12u(medium) 12u$(xsmall)">
+            {% if signal %}
+                {{ signal|safe }}
+            {% endif %}
+        </div>
+        <div class="12u 12u(medium) 12u$(xsmall)">
+            {% if compressed_signal %}
+                {{ compressed_signal|safe }}
+            {% endif %}
+        </div>
+        <div class="12u 12u(medium) 12u$(xsmall)">
+            {% if decompressed_signal %}
+                {{ decompressed_signal|safe }}
+            {% endif %}
+        </div>
+        <div class="12u 12u(medium) 12u$(xsmall)">
+            {% if difference %}
+                {{ difference|safe }}
+            {% endif %}
+        </div>
+    </div>
+</div>

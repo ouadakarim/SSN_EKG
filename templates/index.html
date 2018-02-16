@@ -1,0 +1,26 @@
+{%extends "layout.html"%}
+{% load static from staticfiles %}
+
+    {%block title%}
+        <title>ECG Compression using ANN</title>
+    {%endblock%}
+
+    {% block style %}
+    {% endblock %}
+
+   {%block content%}
+        <!-- Banner -->
+        <section id="banner">
+            <div class="content">
+                <header>
+                    <h2>Compression made simple</h2>
+                    <p>Introducing ECG compression with the use of AAN.<br />
+                    Select ECG signal. Compress. Compare.</p>
+                    &nbsp;
+                    <a href="{% url 'app' %}" class="button fit">Check it out</a>
+                </header>
+                <span class="image"><img src="{% static 'images/heart-small-1x1.png' %}" alt="" /></span>
+            </div>
+        </section>
+
+   {%endblock%}
