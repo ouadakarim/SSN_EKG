@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /code
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
